@@ -1,8 +1,14 @@
+import 'lib/read.dart';
+import 'character/character.dart';
+import 'character/information/information.dart';
+import 'character/information/name.dart';
+
 void main(List<String> args) {
-  print('''
-Hello My First CMD Game !
-my name is Ali,but you may call me Alan 
-i will try to develop and expand you
-so be right with me ! :)
-''');
+  final String fn = takeName('First');
+  final String mn = takeName('Middle');
+  final String ln = takeName('Last');
+
+  Character character = Character(Information(Name(fn, mn, ln)));
+
+  print(character);
 }
