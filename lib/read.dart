@@ -11,14 +11,23 @@ int intInput() {
 String stringInput() {
   while (true) {
     String? input = stdin.readLineSync();
-    if (input != null) {
+    if (input != null && input.isNotEmpty) {
+      input = removerSpace(input);
       return input;
     }
-    print('Wrong input !\n Try Again');
+    stdout.write('\nWrong input ! Try Again : ');
   }
 }
 
 String takeName(String required) {
   stdout.write('Enter $required name : ');
   return stringInput();
+}
+
+String removerSpace(String string) {
+  while (true) {
+    List<String> list = string.split('');
+    list.removeWhere((element) => element.contains(' '));
+    return list.join();
+  }
 }
