@@ -25,9 +25,7 @@ String takeName(String required) {
 }
 
 String removerSpace(String string) {
-  while (true) {
-    List<String> list = string.split('');
-    list.removeWhere((element) => element.contains(' '));
-    return list.join();
-  }
+  List<String> list = string.split('');
+  list.removeWhere((element) => element.contains(' '));
+  return list.join();
 }
