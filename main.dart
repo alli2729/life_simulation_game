@@ -1,3 +1,7 @@
+import 'character/appearance/appearance.dart';
+import 'character/appearance/hair.dart';
+import 'character/appearance/head.dart';
+import 'character/appearance/physical.dart';
 import 'lib/read.dart';
 import 'character/character.dart';
 import 'character/information/information.dart';
@@ -8,7 +12,16 @@ void main(List<String> args) {
   final String mn = takeName('Middle');
   final String ln = takeName('Last');
 
-  Character character = Character(Information(Name(fn, mn, ln)));
+  Character character = Character(
+    information: Information(Name(fn, mn, ln)),
+    appearance: Appearance(
+      physical: Physical(height: 177, weight: 95, skinTone: 'white'),
+      head: Head(
+        eyeColor: 'brown',
+        hair: Hair(color: 'black'),
+      ),
+    ),
+  );
 
-  print(character);
+  print(character.information.name);
 }
